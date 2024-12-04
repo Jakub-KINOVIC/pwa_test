@@ -1,0 +1,35 @@
+# Basic Site Settings
+title: "Hello PWA"                # The title of your site
+description: "A simple PWA demo"  # Short description of the project
+baseurl: ""                       # Leave blank if hosted at the root
+url: "https://yourusername.github.io"  # Update with your GitHub Pages URL
+
+# Build Settings
+source: "."                       # Source folder (default: current directory)
+destination: "_site"              # Build output directory
+markdown: kramdown                # Markdown engine
+
+# Permalinks
+permalink: pretty                 # Use pretty URLs (removes .html extensions)
+
+# Exclusions
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - sw.js                       # Keep service worker in the root, not processed by Jekyll
+  - manifest.json               # Same as above
+
+# Plugins
+plugins:
+  - jekyll-feed                 # Optional: Add RSS feed generation
+  - jekyll-seo-tag              # Optional: Add SEO metadata to pages
+  - jekyll-pwa                  # Optional: Add PWA-specific helpers (if installed)
+
+# Theme and Layout
+theme: minima                   # Default theme (optional; can be customized)
+
+# PWA-Specific
+jekyll-pwa:
+  manifest: "manifest.json"     # PWA manifest file
+  sw: "sw.js"                   # Service worker file
