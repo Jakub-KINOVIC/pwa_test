@@ -1,8 +1,8 @@
 const CACHE_NAME = 'hello-pwa-cache';
 const urlsToCache = [
-  './',
-  './index.html',
-  './manifest.json'
+  '/',
+  '/index.html',
+  '/manifest.json'
 ];
 
 // Install event: caching files
@@ -24,4 +24,9 @@ self.addEventListener('fetch', (event) => {
         return response || fetch(event.request);
       })
   );
+});
+
+// Activate event
+self.addEventListener('activate', (event) => {
+  console.log('[Service Worker] Activating...');
 });
