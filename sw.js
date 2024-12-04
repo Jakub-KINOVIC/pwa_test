@@ -1,28 +1,33 @@
-const CACHE_NAME = 'hello-pwa-cache';
-const urlsToCache = [
+// Cache name
+const CACHE_NAME = 'hello-world-pwa-v1';
+
+// Files to cache
+const CACHE_FILES = [
   '/',
   '/index.html',
-  '/manifest.json'
+  '/style.css',
+  '/manifest.json',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
 ];
 
-// Install event: caching files
+// Install event
 self.addEventListener('install', (event) => {
+  console.log('[Service Worker] Installing...');
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('[Service Worker] Caching files');
+      return cache.addAll(CACHE_FILES);
+    })
   );
 });
 
-// Fetch event: serving files from cache
+// Fetch event
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
 
