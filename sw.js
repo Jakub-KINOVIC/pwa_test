@@ -3,12 +3,12 @@ const CACHE_NAME = 'hello-world-pwa-v1';
 
 // Files to cache
 const CACHE_FILES = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  './',
+  './index.html',
+  './style.css',
+  './manifest.json',
+  './icons/icon-192x192.png',
+  './icons/icon-512x512.png'
 ];
 
 // Install event
